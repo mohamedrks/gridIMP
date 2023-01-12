@@ -1,3 +1,6 @@
+
+## Prerequisite - Basic local machine setup to run an angular project. 
+
 1. Navigate to the project folder.
 
 2.Do "npm install"
