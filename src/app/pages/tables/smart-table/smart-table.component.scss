@@ -1,0 +1,30 @@
+@use '../../../@theme/styles/themes' as *;
+
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.progress-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.description {
+  margin-top: 0.5rem;
+}
+
+// Battery graphical cell css.
+.percentage-box {
+  width: 15px;
+  height: 25px;
+  display: inline-block;
+  margin: 0.5px;
+}

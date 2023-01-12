@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-xxl-9">
+    <nb-card>
+      <nb-card-header>
+        Battery Activity Monitoring. 
+      </nb-card-header>
+      <!-- Table Data -->
+      <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="source">
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-xxl-3">
+    <!-- Battery Information Card. -->
+    <nb-card size="medium">
+      <nb-card-header>
+        grid IMP Live battery status.
+      </nb-card-header>
+      <nb-card-body>
+        <!-- Battery information. -->
+        <div class="progress-info" >
+          <div class="subtitle">Current Status. <nb-icon icon="arrowhead-right-outline"></nb-icon> {{ action }}</div>
+          <div class="subtitle">Billing period. <nb-icon icon="arrowhead-right-outline"></nb-icon> {{ liveBillingPeriod }}</div>
+          <div class="subtitle" *ngIf="liveCharginPerHour > 0">Battery charging now in kWh. <nb-icon icon="arrowhead-right-outline"></nb-icon> {{ liveCharginPerHour }}</div>
+          <div class="subtitle" *ngIf="liveDisharginPerHour > 0">Battery discharging now in kWh. <nb-icon icon="arrowhead-right-outline"></nb-icon> {{ liveDisharginPerHour }}</div>
+          <div class="h3">{{ percentage | ngxNumberWithCommas }}%</div>
+          <div class="caption description">
+            <bdi>Current battery charge.</bdi>
+          </div>
+        </div>
+        <!-- Battery status in graphical cell level. -->
+        <div class="percentage-box" *ngFor="let item of arrayColor" [ngStyle]="{ 'background-color': item.color }">
+            <ng-template [ngIf]="item.full === false">
+              <div [ngStyle]="{ 'background-color': color, width: item.width, height: '25px' }"></div>
+            </ng-template>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
